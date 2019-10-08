@@ -6,7 +6,11 @@ package gatewayv0alphapb
 import (
 	context "context"
 	fmt "fmt"
+	v0alpha6 "github.com/cs3org/go-cs3apis/cs3/appregistry/v0alpha"
 	v0alpha1 "github.com/cs3org/go-cs3apis/cs3/auth/v0alpha"
+	v0alpha5 "github.com/cs3org/go-cs3apis/cs3/ocmshareprovider/v0alpha"
+	v0alpha3 "github.com/cs3org/go-cs3apis/cs3/preferences/v0alpha"
+	v0alpha4 "github.com/cs3org/go-cs3apis/cs3/publicshareprovider/v0alpha"
 	v0alpha "github.com/cs3org/go-cs3apis/cs3/storageprovider/v0alpha"
 	types "github.com/cs3org/go-cs3apis/cs3/types"
 	v0alpha2 "github.com/cs3org/go-cs3apis/cs3/usershareprovider/v0alpha"
@@ -290,66 +294,91 @@ func init() {
 func init() { proto.RegisterFile("cs3/gateway/v0alpha/gateway.proto", fileDescriptor_abc3eb7237c57d7d) }
 
 var fileDescriptor_abc3eb7237c57d7d = []byte{
-	// 929 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xdc, 0x97, 0x4d, 0x6f, 0xdc, 0x44,
-	0x18, 0xc7, 0xe5, 0x34, 0x6c, 0xd1, 0xa4, 0xd0, 0x74, 0x52, 0x20, 0x5a, 0x24, 0x5e, 0x82, 0x80,
-	0x86, 0xb4, 0x4e, 0x9a, 0x25, 0x4d, 0x39, 0x26, 0xa9, 0x58, 0x45, 0x02, 0x35, 0x78, 0xb7, 0xe5,
-	0x45, 0xa0, 0x6a, 0xe2, 0x7d, 0x36, 0x6b, 0xb1, 0xf6, 0xb8, 0x33, 0xe3, 0xad, 0x16, 0x89, 0x03,
-	0xe2, 0xc0, 0xcb, 0xc7, 0xe0, 0xc8, 0x47, 0xe1, 0xc8, 0x89, 0x3b, 0x5f, 0x04, 0x8d, 0xfd, 0xcc,
-	0xae, 0xbd, 0x76, 0xbc, 0x63, 0x0e, 0x3d, 0xf4, 0xb2, 0xd2, 0xce, 0xfc, 0x7f, 0xcf, 0xff, 0x3f,
-	0x33, 0x9e, 0x19, 0x9b, 0xbc, 0xeb, 0xcb, 0xce, 0xee, 0x05, 0x53, 0xf0, 0x8c, 0x4d, 0x77, 0x27,
-	0x7b, 0x6c, 0x1c, 0x8f, 0x98, 0xf9, 0xef, 0xc6, 0x82, 0x2b, 0x4e, 0xa9, 0x2f, 0x3b, 0x2e, 0x36,
-	0xa1, 0xa2, 0xfd, 0xa6, 0xc6, 0x58, 0xa2, 0x46, 0x33, 0x46, 0xff, 0xc9, 0x80, 0xf6, 0x8e, 0xee,
-	0x94, 0x8a, 0x0b, 0x76, 0x01, 0xb1, 0xe0, 0x93, 0x60, 0x00, 0x62, 0xa6, 0x13, 0x20, 0x79, 0x22,
-	0x7c, 0x90, 0x28, 0xbe, 0x5b, 0x27, 0x5e, 0x68, 0x47, 0xe4, 0x35, 0x8d, 0xa8, 0x69, 0x0c, 0x32,
-	0xfb, 0xc5, 0xe6, 0x03, 0xdd, 0x9c, 0x48, 0x10, 0x72, 0xc4, 0x44, 0xb9, 0x56, 0xa9, 0x27, 0xc3,
-	0xb6, 0x12, 0x72, 0xbd, 0x0b, 0xea, 0x8b, 0x84, 0x2b, 0xe6, 0xc1, 0xd3, 0x04, 0xa4, 0xa2, 0xdb,
-	0xa4, 0xc5, 0x63, 0xf6, 0x34, 0x81, 0x4d, 0xe7, 0x1d, 0xe7, 0xd6, 0xda, 0xfe, 0x0d, 0x57, 0x4f,
-	0x41, 0xe6, 0xf5, 0x30, 0xed, 0xf0, 0x50, 0x40, 0x0f, 0xc9, 0x15, 0x01, 0xc3, 0xcd, 0x95, 0x54,
-	0xf7, 0x7e, 0xaa, 0x5b, 0x08, 0x8d, 0xfe, 0xae, 0x07, 0x43, 0x10, 0x10, 0xf9, 0xe0, 0x69, 0x62,
-	0xeb, 0x6f, 0x87, 0xd0, 0xcf, 0x02, 0xa9, 0x3c, 0xf0, 0xa7, 0xfe, 0x18, 0x9e, 0xa3, 0x35, 0xbd,
-	0x43, 0xae, 0x0e, 0x05, 0x0f, 0x9f, 0x28, 0xb9, 0x79, 0x25, 0x85, 0x6f, 0xe6, 0x4c, 0xfa, 0x41,
-	0x08, 0x52, 0xb1, 0x30, 0xf6, 0x5a, 0x5a, 0xd4, 0x97, 0x74, 0x9b, 0xbc, 0xa4, 0xb8, 0x16, 0xaf,
-	0xd6, 0x88, 0x57, 0x15, 0xef, 0xcb, 0xad, 0x7f, 0x1c, 0xb2, 0x99, 0x1b, 0x54, 0x4f, 0x09, 0x60,
-	0xe1, 0x8b, 0x31, 0xb4, 0x29, 0xd9, 0x38, 0x4b, 0xc4, 0x05, 0x3c, 0xff, 0xf5, 0xda, 0xff, 0xf7,
-	0x0d, 0xf2, 0x6a, 0x37, 0xdb, 0x7f, 0x3d, 0x10, 0x93, 0xc0, 0x07, 0x1a, 0x93, 0x8d, 0x2e, 0x44,
-	0x20, 0x98, 0x82, 0x23, 0xdf, 0x07, 0x29, 0xfb, 0xfc, 0x7b, 0x88, 0xe8, 0x4e, 0x5a, 0x55, 0x6f,
-	0x45, 0x53, 0xaa, 0x42, 0x85, 0xd1, 0xdb, 0xb7, 0xed, 0xc4, 0x32, 0xe6, 0x91, 0x04, 0x7a, 0x4a,
-	0x5a, 0x5f, 0x8e, 0xf8, 0x51, 0x78, 0x4a, 0xdf, 0x2a, 0x71, 0x59, 0x87, 0xa9, 0xfb, 0xf6, 0xa5,
-	0xfd, 0x58, 0xea, 0x07, 0x72, 0xfd, 0x44, 0x00, 0x53, 0x70, 0xc2, 0x23, 0xc5, 0x82, 0x08, 0x04,
-	0xdd, 0xaf, 0x9b, 0x8e, 0x05, 0xb1, 0xf1, 0xe9, 0x34, 0x62, 0xd0, 0xfb, 0x09, 0x69, 0x3d, 0x80,
-	0x31, 0x28, 0xa0, 0xdb, 0x75, 0x78, 0xa6, 0x31, 0x4e, 0x1f, 0xd9, 0x48, 0xd1, 0xe0, 0x9c, 0x5c,
-	0xed, 0x82, 0x3a, 0x63, 0x6a, 0x44, 0x6b, 0x31, 0x14, 0x19, 0x8b, 0x1d, 0x2b, 0x2d, 0x7a, 0x7c,
-	0x47, 0x5e, 0x36, 0x47, 0x16, 0x7d, 0xcf, 0x2d, 0x1f, 0xcf, 0xee, 0xc2, 0x81, 0x86, 0x4b, 0x7d,
-	0x79, 0x75, 0x14, 0x63, 0xf9, 0xdf, 0x1c, 0x72, 0xf3, 0x34, 0x0a, 0x54, 0xc0, 0x14, 0x7c, 0x1a,
-	0x8c, 0xe1, 0x01, 0x7f, 0x16, 0x8d, 0x39, 0x1b, 0xd0, 0xc3, 0xba, 0x32, 0x55, 0x84, 0xf1, 0xbf,
-	0xdf, 0x1c, 0xc4, 0x2c, 0x3f, 0x3b, 0x84, 0xe6, 0x05, 0x8f, 0xe2, 0x34, 0xc9, 0x81, 0x6d, 0xc1,
-	0x4c, 0x6f, 0x72, 0xdc, 0x6b, 0x8a, 0x61, 0x8a, 0x5f, 0x1d, 0xb2, 0xa1, 0xcf, 0xb5, 0xd9, 0xf3,
-	0x94, 0x9d, 0x6c, 0xb4, 0xb6, 0x5e, 0x05, 0x60, 0x72, 0x1c, 0x36, 0xe6, 0xb2, 0x20, 0x7b, 0x0e,
-	0x55, 0xe4, 0x95, 0x82, 0x80, 0xee, 0x59, 0xd7, 0x32, 0xee, 0x77, 0x1b, 0x10, 0x38, 0x01, 0x3f,
-	0x92, 0x75, 0xdd, 0xa1, 0xa7, 0xe6, 0x31, 0x08, 0x19, 0xf0, 0x48, 0xd2, 0xce, 0xb2, 0x32, 0x79,
-	0xb5, 0xf1, 0xfe, 0xb8, 0x19, 0x34, 0x3b, 0x31, 0x6e, 0x94, 0xae, 0x15, 0x7a, 0xbb, 0xea, 0xc9,
-	0xbf, 0xec, 0xf6, 0x69, 0x1f, 0x2c, 0x33, 0x5e, 0xa0, 0x66, 0x13, 0x3e, 0x24, 0x6b, 0xb9, 0x6e,
-	0xfa, 0xc1, 0x12, 0x57, 0xe3, 0xb7, 0x6b, 0xe9, 0x37, 0x1b, 0xe3, 0xd7, 0x64, 0xf5, 0x73, 0x3e,
-	0x01, 0xfa, 0x61, 0x1d, 0xa8, 0x15, 0xc6, 0xe1, 0xd6, 0x72, 0x21, 0x96, 0x0e, 0xc8, 0xb5, 0xfc,
-	0xdd, 0x85, 0x16, 0x0b, 0x63, 0xa8, 0xb8, 0xdd, 0xda, 0xb5, 0xcf, 0x56, 0x11, 0xc8, 0xed, 0x57,
-	0x0f, 0x34, 0x01, 0xb9, 0x95, 0xac, 0xdf, 0xaf, 0x65, 0xbd, 0xd5, 0x7e, 0xad, 0xc2, 0xca, 0x29,
-	0x30, 0xe0, 0xa9, 0x82, 0xd0, 0x2a, 0x45, 0x4e, 0xdf, 0x24, 0x45, 0x01, 0x9b, 0xaf, 0x68, 0x4f,
-	0x31, 0x55, 0xbf, 0xa2, 0x5a, 0x61, 0xb5, 0xa2, 0x99, 0x10, 0x4b, 0x0b, 0xb2, 0x96, 0xdd, 0x70,
-	0x3d, 0xfd, 0x46, 0x8b, 0x67, 0x40, 0xe9, 0x0d, 0xb7, 0x78, 0x19, 0xa6, 0xd2, 0xe2, 0x19, 0x60,
-	0x47, 0xcc, 0x3d, 0x3d, 0x08, 0xf9, 0xc4, 0xce, 0x33, 0x27, 0xb5, 0xf4, 0x2c, 0x10, 0xb3, 0x27,
-	0x57, 0xdf, 0x74, 0x99, 0xe1, 0x9d, 0x7a, 0xdc, 0xe8, 0x8c, 0x9b, 0x6b, 0x2b, 0x47, 0x2b, 0x4e,
-	0x88, 0xde, 0x96, 0x69, 0xa3, 0xa4, 0xbb, 0xf5, 0xf4, 0x5c, 0x59, 0xdc, 0x2a, 0x56, 0xc0, 0x7c,
-	0x3e, 0x1f, 0xc5, 0x03, 0xdb, 0x35, 0xcc, 0x49, 0x2d, 0xe7, 0xb3, 0x40, 0xa0, 0xe7, 0x2f, 0xf3,
-	0xaf, 0x0e, 0x08, 0x26, 0x30, 0xc0, 0xd1, 0x1e, 0x2e, 0x0f, 0x5f, 0x24, 0x8a, 0x17, 0x7b, 0x23,
-	0x10, 0x93, 0xfc, 0xee, 0x90, 0x8d, 0x2c, 0x61, 0x41, 0x40, 0xef, 0xdb, 0x0c, 0xaa, 0x80, 0x98,
-	0x2c, 0x9f, 0xfc, 0x0f, 0x12, 0xc3, 0xfc, 0xe4, 0x90, 0xf5, 0x2e, 0x14, 0xa3, 0xe2, 0x69, 0x51,
-	0xf7, 0x00, 0x55, 0xc6, 0xb8, 0xd7, 0x14, 0xcb, 0x32, 0x1c, 0x87, 0xe4, 0x75, 0x9f, 0x87, 0x15,
-	0x27, 0xf3, 0xf1, 0x35, 0x7c, 0xf9, 0x3f, 0xd3, 0xdf, 0xab, 0x67, 0xce, 0x37, 0xeb, 0xc5, 0xfe,
-	0xf8, 0xfc, 0x8f, 0x95, 0xd6, 0xc9, 0xf1, 0xc3, 0xaf, 0x8e, 0x8e, 0xff, 0x5c, 0xa1, 0x27, 0xbd,
-	0x8e, 0x8b, 0xfa, 0xc7, 0x7b, 0x47, 0xba, 0xff, 0xaf, 0xb4, 0xf1, 0xdb, 0x62, 0xe3, 0x79, 0x2b,
-	0xfd, 0xfa, 0xed, 0xfc, 0x17, 0x00, 0x00, 0xff, 0xff, 0x03, 0x4c, 0xe7, 0xe9, 0x01, 0x10, 0x00,
-	0x00,
+	// 1344 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xdc, 0x99, 0x4d, 0x6f, 0x1b, 0x45,
+	0x18, 0xc7, 0xb5, 0x6d, 0x71, 0xd1, 0xa4, 0x34, 0xed, 0xa4, 0xa9, 0xa2, 0x20, 0xf1, 0x12, 0x44,
+	0x69, 0x9a, 0xd6, 0x79, 0x31, 0x69, 0x9a, 0x02, 0x07, 0x27, 0x15, 0x56, 0x54, 0xa2, 0x18, 0x3b,
+	0x69, 0x01, 0x81, 0xaa, 0x8d, 0xf3, 0x24, 0x5e, 0x61, 0x7b, 0xb6, 0x33, 0x63, 0x57, 0x46, 0x20,
+	0x84, 0x10, 0xa2, 0x70, 0x00, 0x21, 0xf1, 0x09, 0x38, 0xf2, 0x51, 0x38, 0x72, 0xe2, 0xcc, 0x27,
+	0x41, 0xbb, 0xf3, 0x8c, 0x77, 0x66, 0xbd, 0x59, 0xcf, 0xe6, 0xd0, 0x03, 0x97, 0x48, 0x99, 0xf9,
+	0xff, 0x9e, 0xff, 0x7f, 0x77, 0x66, 0x9f, 0x7d, 0x31, 0x79, 0xb3, 0x25, 0x2a, 0xcb, 0x27, 0xbe,
+	0x84, 0x67, 0xfe, 0x70, 0x79, 0xb0, 0xe2, 0x77, 0xc2, 0xb6, 0xaf, 0xff, 0x2f, 0x87, 0x9c, 0x49,
+	0x46, 0x69, 0x4b, 0x54, 0xca, 0x38, 0x84, 0x8a, 0xf9, 0xc5, 0x08, 0xf3, 0xc3, 0x90, 0xc3, 0x49,
+	0x20, 0x24, 0x4f, 0x50, 0x63, 0x4c, 0xe1, 0xf3, 0xaf, 0xc6, 0xd2, 0xbe, 0x6c, 0x27, 0x9a, 0xbe,
+	0x6c, 0xe3, 0x64, 0x25, 0x9a, 0x64, 0xad, 0xae, 0x68, 0xfb, 0x1c, 0x42, 0xce, 0x06, 0xc1, 0x11,
+	0xf0, 0x91, 0x30, 0x3d, 0x81, 0x50, 0x6c, 0x1e, 0x72, 0x38, 0x06, 0x0e, 0xbd, 0x16, 0x88, 0x91,
+	0xde, 0x18, 0x43, 0xe9, 0x66, 0x2c, 0xed, 0x1f, 0x76, 0x82, 0x56, 0xb6, 0x45, 0xc6, 0x1c, 0xa2,
+	0x4b, 0x11, 0x2a, 0x24, 0xe3, 0xfe, 0xc9, 0x38, 0xc6, 0x41, 0xb0, 0x3e, 0x4f, 0x7c, 0x56, 0xf3,
+	0xc4, 0xa9, 0x71, 0x44, 0x66, 0x23, 0x44, 0x0e, 0x43, 0x10, 0xea, 0x2f, 0x0e, 0xaf, 0x47, 0xc3,
+	0x7d, 0x01, 0x3c, 0x3b, 0xef, 0xd8, 0x8c, 0xc2, 0x16, 0xfa, 0x64, 0xba, 0x06, 0xf2, 0xe3, 0x3e,
+	0x93, 0x7e, 0x03, 0x9e, 0xf6, 0x41, 0x48, 0xba, 0x48, 0x4a, 0x2c, 0xf4, 0x9f, 0xf6, 0x61, 0xce,
+	0x7b, 0xc3, 0xbb, 0x39, 0xb5, 0x76, 0xb5, 0x1c, 0x2d, 0xa4, 0xf2, 0xda, 0x8b, 0x27, 0x1a, 0x28,
+	0xa0, 0x1b, 0xe4, 0x3c, 0x87, 0xe3, 0xb9, 0x73, 0xb1, 0xee, 0xed, 0x58, 0x97, 0x0a, 0x8d, 0xfe,
+	0xe5, 0x86, 0x3e, 0xc3, 0x8d, 0x88, 0x58, 0xf8, 0xdb, 0x23, 0xf4, 0xa3, 0x40, 0xc8, 0x06, 0xb4,
+	0x86, 0xad, 0x0e, 0xbc, 0x40, 0x6b, 0x7a, 0x87, 0x5c, 0x3c, 0xe6, 0xac, 0xfb, 0x44, 0x8a, 0xb9,
+	0xf3, 0x31, 0x7c, 0xcd, 0x30, 0xd9, 0x0f, 0xba, 0x20, 0xa4, 0xdf, 0x0d, 0x1b, 0xa5, 0x48, 0xb4,
+	0x2f, 0xe8, 0x22, 0x79, 0x49, 0xb2, 0x48, 0x7c, 0x21, 0x47, 0x7c, 0x41, 0xb2, 0x7d, 0xb1, 0xf0,
+	0x8f, 0x47, 0xe6, 0x8c, 0x83, 0x6a, 0x4a, 0x0e, 0x7e, 0xf7, 0xff, 0x71, 0x68, 0x43, 0x32, 0x53,
+	0xef, 0xf3, 0x13, 0x78, 0xf1, 0xeb, 0xb5, 0xf6, 0xef, 0x2d, 0x72, 0xb9, 0xa6, 0xba, 0x48, 0x13,
+	0xf8, 0x20, 0x68, 0x01, 0x0d, 0xc9, 0x4c, 0x0d, 0x7a, 0xc0, 0x7d, 0x09, 0xd5, 0x56, 0x0b, 0x84,
+	0xd8, 0x67, 0x5f, 0x42, 0x8f, 0x2e, 0xc5, 0x55, 0xa3, 0x2e, 0xa1, 0x4b, 0x65, 0xa8, 0x30, 0xfa,
+	0xfc, 0x6d, 0x37, 0xb1, 0x08, 0x59, 0x4f, 0x00, 0xdd, 0x21, 0xa5, 0xc7, 0x6d, 0x56, 0xed, 0xee,
+	0xd0, 0xd7, 0xc6, 0x38, 0x35, 0xa1, 0xeb, 0xbe, 0x7e, 0xea, 0x3c, 0x96, 0xfa, 0x8a, 0x4c, 0x6f,
+	0x73, 0xf0, 0x25, 0x6c, 0xb3, 0x9e, 0xf4, 0x83, 0x1e, 0x70, 0xba, 0x96, 0x77, 0x3a, 0x52, 0x62,
+	0xed, 0x53, 0x29, 0xc4, 0xa0, 0xf7, 0x13, 0x52, 0x7a, 0x00, 0x1d, 0x90, 0x40, 0x17, 0xf3, 0x70,
+	0xa5, 0xd1, 0x4e, 0xb7, 0x5c, 0xa4, 0x68, 0x70, 0x48, 0x2e, 0xd6, 0x40, 0xd6, 0x7d, 0xd9, 0xa6,
+	0xb9, 0x18, 0x8a, 0xb4, 0xc5, 0x92, 0x93, 0x16, 0x3d, 0xbe, 0x20, 0x2f, 0xeb, 0x96, 0x45, 0xdf,
+	0x2a, 0x8f, 0xdf, 0x64, 0xca, 0xa9, 0x86, 0x86, 0x4b, 0x7d, 0x7a, 0x75, 0x14, 0x63, 0xf9, 0x9f,
+	0x3c, 0x72, 0x6d, 0xa7, 0x17, 0xc8, 0xc0, 0x97, 0xf0, 0x61, 0xd0, 0x81, 0x07, 0xec, 0x59, 0xaf,
+	0xc3, 0xfc, 0x23, 0xba, 0x91, 0x57, 0x26, 0x8b, 0xd0, 0xfe, 0xf7, 0x8a, 0x83, 0x98, 0xe5, 0x7b,
+	0x8f, 0x50, 0x53, 0x70, 0x10, 0xc6, 0x49, 0xd6, 0x5d, 0x0b, 0x2a, 0xbd, 0xce, 0x71, 0xb7, 0x28,
+	0x86, 0x29, 0x9e, 0x7b, 0x64, 0x26, 0xea, 0x6b, 0xa3, 0xfd, 0xa4, 0x3a, 0x1b, 0xcd, 0xad, 0x97,
+	0x01, 0xe8, 0x1c, 0x1b, 0x85, 0x39, 0x15, 0x64, 0xc5, 0xa3, 0x92, 0xbc, 0x62, 0x09, 0xe8, 0x8a,
+	0x73, 0x2d, 0xed, 0xbe, 0x5a, 0x80, 0xc0, 0x13, 0xf0, 0x0d, 0xb9, 0x12, 0x4d, 0x44, 0xa7, 0xe6,
+	0x11, 0x70, 0x11, 0xb0, 0x9e, 0xa0, 0x95, 0x49, 0x65, 0x4c, 0xb5, 0xf6, 0x7e, 0xb7, 0x18, 0x34,
+	0xea, 0x18, 0x57, 0xc7, 0x6e, 0x2b, 0xf4, 0x76, 0xd6, 0xce, 0x3f, 0xed, 0xee, 0x33, 0xbf, 0x3e,
+	0xc9, 0x38, 0x45, 0x8d, 0x4e, 0xf8, 0x31, 0x99, 0x32, 0xa6, 0xe9, 0x8d, 0x09, 0xae, 0xda, 0x6f,
+	0xd9, 0xd1, 0x6f, 0x74, 0x8c, 0x9f, 0x92, 0x0b, 0xbb, 0x6c, 0x00, 0xf4, 0x9d, 0x3c, 0x30, 0x52,
+	0x68, 0x87, 0x9b, 0x93, 0x85, 0x58, 0x3a, 0x20, 0x97, 0xcc, 0x7b, 0x17, 0x5a, 0xa4, 0x8e, 0x21,
+	0xe3, 0xee, 0x36, 0x9f, 0xbb, 0xb7, 0x6c, 0xc0, 0xb8, 0x5e, 0x1b, 0x10, 0x11, 0x60, 0xac, 0x64,
+	0xfe, 0xf5, 0x3a, 0xae, 0x77, 0xba, 0x5e, 0xb3, 0xb0, 0xf1, 0x14, 0x18, 0x70, 0x47, 0x42, 0xd7,
+	0x29, 0x85, 0xa1, 0x2f, 0x92, 0xc2, 0xc2, 0x92, 0x15, 0x6d, 0x4a, 0x5f, 0xe6, 0xaf, 0x68, 0xa4,
+	0x70, 0x5a, 0x51, 0x25, 0x34, 0x5a, 0x74, 0x13, 0x64, 0x95, 0x1f, 0x06, 0x92, 0xfb, 0x7c, 0xb8,
+	0x0b, 0xd2, 0x3f, 0xf2, 0xa5, 0x9f, 0xdf, 0xa2, 0xb3, 0x08, 0xa7, 0x16, 0x9d, 0x0d, 0x62, 0x96,
+	0x5f, 0x3d, 0x72, 0xfd, 0xa0, 0x27, 0xb2, 0xd2, 0x6c, 0xe6, 0x15, 0xcd, 0x66, 0x74, 0x9e, 0xfb,
+	0x67, 0x41, 0x31, 0x11, 0x27, 0x53, 0xea, 0xfe, 0xdf, 0x8c, 0x9e, 0xf7, 0xb1, 0x43, 0x8e, 0x3d,
+	0xff, 0xdb, 0x8f, 0x0a, 0xb1, 0xd4, 0xee, 0x90, 0x6e, 0x44, 0xe2, 0xd9, 0x80, 0x2e, 0x1b, 0xb8,
+	0x79, 0x1a, 0x52, 0x47, 0x4f, 0x8b, 0x18, 0x5d, 0xd7, 0xd1, 0x73, 0x80, 0x32, 0xbc, 0x93, 0x8f,
+	0x6b, 0x9d, 0x76, 0x2b, 0xbb, 0xca, 0xd1, 0x8a, 0x11, 0x12, 0x35, 0xad, 0x78, 0x50, 0xd0, 0xe5,
+	0x7c, 0x3a, 0x51, 0xda, 0x8d, 0xc4, 0x09, 0x48, 0xce, 0xe7, 0x41, 0x78, 0xe4, 0xba, 0x86, 0x86,
+	0xd4, 0xf1, 0x7c, 0x5a, 0x04, 0x7a, 0xfe, 0x98, 0xbc, 0x93, 0x41, 0x30, 0x80, 0x23, 0x3c, 0xda,
+	0x8d, 0xc9, 0xe1, 0x6d, 0xc2, 0xbe, 0xa6, 0x0a, 0x81, 0x98, 0xe4, 0x67, 0x8f, 0xcc, 0xa8, 0x84,
+	0x96, 0x80, 0xde, 0x73, 0x39, 0x28, 0x0b, 0xd1, 0x59, 0x36, 0xcf, 0x40, 0x62, 0x98, 0xef, 0x3c,
+	0x72, 0xa5, 0x06, 0x76, 0x54, 0xec, 0xa5, 0x79, 0x1b, 0x28, 0x33, 0xc6, 0xdd, 0xa2, 0x18, 0x66,
+	0x78, 0x4c, 0x4a, 0x4d, 0x90, 0x0f, 0x61, 0x48, 0xd5, 0x9b, 0x93, 0xf1, 0xc1, 0xc2, 0x68, 0x52,
+	0x0f, 0x61, 0xa8, 0x8d, 0x6e, 0x4c, 0x92, 0x25, 0x85, 0x6b, 0x13, 0x0a, 0xd7, 0xdc, 0x0a, 0xd7,
+	0xec, 0xc2, 0xcf, 0x3d, 0x72, 0x55, 0x35, 0x8a, 0x7a, 0xfc, 0xa5, 0xc4, 0x5c, 0xc0, 0x8c, 0x6f,
+	0x27, 0x76, 0x6f, 0x31, 0x10, 0x7b, 0x01, 0x8b, 0x91, 0x46, 0x14, 0xd5, 0x3f, 0x0a, 0x45, 0x19,
+	0x43, 0x9c, 0xa3, 0x64, 0x90, 0x18, 0xe5, 0x5b, 0x72, 0x39, 0x7a, 0x9b, 0x31, 0x62, 0xac, 0x4f,
+	0x2a, 0x66, 0xeb, 0xed, 0x8d, 0x54, 0x00, 0xc3, 0x00, 0xbf, 0x7b, 0x64, 0xd6, 0x9e, 0xda, 0x1a,
+	0xaa, 0x97, 0xe7, 0xf7, 0x8b, 0x55, 0x44, 0x4c, 0xe7, 0xf9, 0xe0, 0x8c, 0x34, 0xc6, 0xfa, 0xc1,
+	0x53, 0x4f, 0xd8, 0x86, 0x44, 0x37, 0x9e, 0x9c, 0x9a, 0x69, 0xc2, 0x6e, 0x3c, 0x85, 0x40, 0x63,
+	0xab, 0xa8, 0x5e, 0x50, 0x68, 0xab, 0x8c, 0x21, 0xce, 0x5b, 0x25, 0x83, 0xc4, 0x28, 0x43, 0x72,
+	0x59, 0x6d, 0xe9, 0xbd, 0xed, 0x5d, 0x15, 0x43, 0x7d, 0x25, 0x48, 0x7f, 0xdb, 0xb4, 0xf7, 0xbf,
+	0x16, 0xdb, 0x5f, 0x09, 0x5c, 0x99, 0xc4, 0x5a, 0x6d, 0x61, 0x47, 0x6b, 0x5b, 0xec, 0x66, 0x9d,
+	0x66, 0xd0, 0x3a, 0x24, 0x53, 0x35, 0x90, 0x23, 0xdf, 0xe5, 0xdc, 0x1a, 0x86, 0xd2, 0xbe, 0xd3,
+	0x3a, 0x01, 0xe8, 0x38, 0x50, 0x6f, 0x94, 0x7a, 0x5c, 0xd0, 0xd5, 0xdc, 0x12, 0x96, 0x56, 0xbb,
+	0xae, 0x15, 0x41, 0xd0, 0xf7, 0x6b, 0x32, 0xad, 0x16, 0x3f, 0x71, 0xce, 0x3f, 0x63, 0x29, 0xb5,
+	0xfd, 0x4a, 0xe9, 0x0c, 0xa1, 0xfb, 0x2f, 0x1e, 0x99, 0x35, 0x6f, 0xc0, 0x49, 0x88, 0xcd, 0x89,
+	0xc7, 0x32, 0xc6, 0xd8, 0x0f, 0xad, 0x05, 0x51, 0x0c, 0xf4, 0x5b, 0xf4, 0x18, 0x6d, 0xdd, 0x85,
+	0x47, 0x9b, 0xe0, 0xbe, 0xc3, 0x11, 0xa6, 0x21, 0x1d, 0xe9, 0xbd, 0x33, 0xb1, 0xa3, 0x87, 0xb0,
+	0xe9, 0x1a, 0xc8, 0x6a, 0x18, 0xd6, 0x91, 0x13, 0x54, 0x3d, 0x38, 0x1a, 0x3f, 0x56, 0x18, 0x5b,
+	0xcb, 0x14, 0xda, 0xef, 0xc1, 0x2e, 0x7a, 0xf4, 0xec, 0xab, 0x46, 0x68, 0x99, 0x9e, 0x5a, 0x24,
+	0xad, 0xb4, 0xaf, 0x02, 0x27, 0x40, 0xd9, 0x6e, 0x75, 0xc9, 0xf5, 0x16, 0xeb, 0x66, 0xbc, 0x18,
+	0x6f, 0x5d, 0xc2, 0x6f, 0xaf, 0x75, 0xce, 0x24, 0xab, 0x7b, 0x9f, 0x5d, 0xb1, 0xe7, 0xc3, 0xc3,
+	0x3f, 0xce, 0x95, 0xb6, 0xb7, 0xf6, 0x3e, 0xa9, 0x6e, 0xfd, 0x79, 0x8e, 0x6e, 0x37, 0x2b, 0x65,
+	0xd4, 0x3f, 0x5a, 0xa9, 0x46, 0xf3, 0x7f, 0xc5, 0x83, 0x9f, 0xdb, 0x83, 0x87, 0xa5, 0xf8, 0xc7,
+	0x87, 0xca, 0x7f, 0x01, 0x00, 0x00, 0xff, 0xff, 0x06, 0x84, 0x86, 0x05, 0x46, 0x1a, 0x00, 0x00,
 }
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -437,6 +466,12 @@ type GatewayServiceClient interface {
 	// Returns the resource information at the provided reference.
 	// MUST return CODE_NOT_FOUND if the reference does not exist.
 	Stat(ctx context.Context, in *v0alpha.StatRequest, opts ...grpc.CallOption) (*v0alpha.StatResponse, error)
+	// Sets arbitrary metadata into a storage resource.
+	// Arbitrary metadata is returned in a cs3.storageproviderv0alpha.ResourceInfo.
+	SetArbitraryMetadata(ctx context.Context, in *v0alpha.SetArbitraryMetadataRequest, opts ...grpc.CallOption) (*v0alpha.SetArbitraryMetadataResponse, error)
+	// Unsets arbitrary metdata into a storage resource.
+	// Arbitrary metadata is returned in a cs3.storageproviderv0alpha.ResourceInfo.
+	UnsetArbitraryMetadata(ctx context.Context, in *v0alpha.UnsetArbitraryMetadataRequest, opts ...grpc.CallOption) (*v0alpha.UnsetArbitraryMetadataResponse, error)
 	// *****************************************************************/
 	// ************************ USER SHARE PROVIDER ********************/
 	// *****************************************************************/
@@ -467,6 +502,74 @@ type GatewayServiceClient interface {
 	// Get the information for the given received share reference.
 	// MUST return CODE_NOT_FOUND if the received share reference does not exist.
 	GetReceivedShare(ctx context.Context, in *v0alpha2.GetReceivedShareRequest, opts ...grpc.CallOption) (*v0alpha2.GetReceivedShareResponse, error)
+	// *****************************************************************/
+	// ************************ PREFERENCES ***************************/
+	// *****************************************************************/
+	// Maps the key-value pair.
+	SetKey(ctx context.Context, in *v0alpha3.SetKeyRequest, opts ...grpc.CallOption) (*v0alpha3.SetKeyResponse, error)
+	// Returns the value associated with the
+	// requested key.
+	GetKey(ctx context.Context, in *v0alpha3.GetKeyRequest, opts ...grpc.CallOption) (*v0alpha3.GetKeyResponse, error)
+	// *****************************************************************/
+	// ************************ PUBLIC SHARE ***************************/
+	// *****************************************************************/
+	// Creates a new share.
+	// MUST return CODE_NOT_FOUND if the resource reference does not exist.
+	// MUST return CODE_ALREADY_EXISTS if the share already exists for the 4-tuple consisting of
+	// (owner, shared_resource, grantee).
+	// New shares MUST be created in the state SHARE_STATE_PENDING.
+	CreatePublicShare(ctx context.Context, in *v0alpha4.CreatePublicShareRequest, opts ...grpc.CallOption) (*v0alpha4.CreatePublicShareResponse, error)
+	// Removes a share.
+	// MUST return CODE_NOT_FOUND if the share reference does not exist.
+	RemovePublicShare(ctx context.Context, in *v0alpha4.RemovePublicShareRequest, opts ...grpc.CallOption) (*v0alpha4.RemovePublicShareResponse, error)
+	// Gets share information for a single share.
+	// MUST return CODE_NOT_FOUND if the share reference does not exist.
+	GetPublicShare(ctx context.Context, in *v0alpha4.GetPublicShareRequest, opts ...grpc.CallOption) (*v0alpha4.GetPublicShareResponse, error)
+	// Gets share information for a single share by its unlisted token.
+	// MUST return CODE_NOT_FOUND if the share does not exist.
+	GetPublicShareByToken(ctx context.Context, in *v0alpha4.GetPublicShareByTokenRequest, opts ...grpc.CallOption) (*v0alpha4.GetPublicShareByTokenResponse, error)
+	// List the shares the authenticated principal has created,
+	// both as owner and creator. If a filter is specified, only
+	// shares satisfying the filter MUST be returned.
+	ListPublicShares(ctx context.Context, in *v0alpha4.ListPublicSharesRequest, opts ...grpc.CallOption) (*v0alpha4.ListPublicSharesResponse, error)
+	// Updates a share.
+	// MUST return CODE_NOT_FOUND if the share reference does not exist.
+	UpdatePublicShare(ctx context.Context, in *v0alpha4.UpdatePublicShareRequest, opts ...grpc.CallOption) (*v0alpha4.UpdatePublicShareResponse, error)
+	// *****************************************************************/
+	// ************************ OCM SHARE PROVIDER *********************/
+	// *****************************************************************/
+	// Creates a new share.
+	// MUST return CODE_NOT_FOUND if the resource reference does not exist.
+	// MUST return CODE_ALREADY_EXISTS if the share already exists for the 4-tuple consisting of
+	// (owner, shared_resource, grantee).
+	// New shares MUST be created in the state SHARE_STATE_PENDING.
+	CreateOCMShare(ctx context.Context, in *v0alpha5.CreateOCMShareRequest, opts ...grpc.CallOption) (*v0alpha5.CreateOCMShareResponse, error)
+	// Removes a share.
+	// MUST return CODE_NOT_FOUND if the share reference does not exist.
+	RemoveOCMShare(ctx context.Context, in *v0alpha5.RemoveOCMShareRequest, opts ...grpc.CallOption) (*v0alpha5.RemoveOCMShareResponse, error)
+	// Gets share information for a single share.
+	// MUST return CODE_NOT_FOUND if the share reference does not exist.
+	GetOCMShare(ctx context.Context, in *v0alpha5.GetOCMShareRequest, opts ...grpc.CallOption) (*v0alpha5.GetOCMShareResponse, error)
+	// List the shares the authenticated principal has created,
+	// both as owner and creator. If a filter is specified, only
+	// shares satisfying the filter MUST be returned.
+	ListOCMShares(ctx context.Context, in *v0alpha5.ListOCMSharesRequest, opts ...grpc.CallOption) (*v0alpha5.ListOCMSharesResponse, error)
+	// Updates a share.
+	// MUST return CODE_NOT_FOUND if the share reference does not exist.
+	UpdateOCMShares(ctx context.Context, in *v0alpha5.UpdateOCMSharesRequest, opts ...grpc.CallOption) (*v0alpha5.UpdateOCMSharesResponse, error)
+	// List all shares the authenticated principal has received.
+	ListReceivedOCMShares(ctx context.Context, in *v0alpha5.ListReceivedOCMSharesRequest, opts ...grpc.CallOption) (*v0alpha5.ListReceivedOCMSharesResponse, error)
+	// Update the received share to change the share state or the display name.
+	// MUST return CODE_NOT_FOUND if the share reference does not exist.
+	UpdateReceivedOCMShare(ctx context.Context, in *v0alpha5.UpdateReceivedOCMShareRequest, opts ...grpc.CallOption) (*v0alpha5.UpdateReceivedOCMShareResponse, error)
+	// *****************************************************************/
+	// ************************ APP REGISTRY ****************************/
+	// *****************************************************************/
+	// Returns the app providers that are capable of handling this resource info.
+	// MUST return CODE_NOT_FOUND if no providers are available.
+	GetAppProviders(ctx context.Context, in *v0alpha6.GetAppProvidersRequest, opts ...grpc.CallOption) (*v0alpha6.GetAppProvidersResponse, error)
+	// Returns a list of the available app providers known by this registry.
+	ListAppProviders(ctx context.Context, in *v0alpha6.ListAppProvidersRequest, opts ...grpc.CallOption) (*v0alpha6.ListAppProvidersResponse, error)
 }
 
 type gatewayServiceClient struct {
@@ -685,6 +788,24 @@ func (c *gatewayServiceClient) Stat(ctx context.Context, in *v0alpha.StatRequest
 	return out, nil
 }
 
+func (c *gatewayServiceClient) SetArbitraryMetadata(ctx context.Context, in *v0alpha.SetArbitraryMetadataRequest, opts ...grpc.CallOption) (*v0alpha.SetArbitraryMetadataResponse, error) {
+	out := new(v0alpha.SetArbitraryMetadataResponse)
+	err := c.cc.Invoke(ctx, "/cs3.gatewayv0alpha.GatewayService/SetArbitraryMetadata", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *gatewayServiceClient) UnsetArbitraryMetadata(ctx context.Context, in *v0alpha.UnsetArbitraryMetadataRequest, opts ...grpc.CallOption) (*v0alpha.UnsetArbitraryMetadataResponse, error) {
+	out := new(v0alpha.UnsetArbitraryMetadataResponse)
+	err := c.cc.Invoke(ctx, "/cs3.gatewayv0alpha.GatewayService/UnsetArbitraryMetadata", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *gatewayServiceClient) CreateShare(ctx context.Context, in *v0alpha2.CreateShareRequest, opts ...grpc.CallOption) (*v0alpha2.CreateShareResponse, error) {
 	out := new(v0alpha2.CreateShareResponse)
 	err := c.cc.Invoke(ctx, "/cs3.gatewayv0alpha.GatewayService/CreateShare", in, out, opts...)
@@ -751,6 +872,159 @@ func (c *gatewayServiceClient) UpdateReceivedShare(ctx context.Context, in *v0al
 func (c *gatewayServiceClient) GetReceivedShare(ctx context.Context, in *v0alpha2.GetReceivedShareRequest, opts ...grpc.CallOption) (*v0alpha2.GetReceivedShareResponse, error) {
 	out := new(v0alpha2.GetReceivedShareResponse)
 	err := c.cc.Invoke(ctx, "/cs3.gatewayv0alpha.GatewayService/GetReceivedShare", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *gatewayServiceClient) SetKey(ctx context.Context, in *v0alpha3.SetKeyRequest, opts ...grpc.CallOption) (*v0alpha3.SetKeyResponse, error) {
+	out := new(v0alpha3.SetKeyResponse)
+	err := c.cc.Invoke(ctx, "/cs3.gatewayv0alpha.GatewayService/SetKey", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *gatewayServiceClient) GetKey(ctx context.Context, in *v0alpha3.GetKeyRequest, opts ...grpc.CallOption) (*v0alpha3.GetKeyResponse, error) {
+	out := new(v0alpha3.GetKeyResponse)
+	err := c.cc.Invoke(ctx, "/cs3.gatewayv0alpha.GatewayService/GetKey", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *gatewayServiceClient) CreatePublicShare(ctx context.Context, in *v0alpha4.CreatePublicShareRequest, opts ...grpc.CallOption) (*v0alpha4.CreatePublicShareResponse, error) {
+	out := new(v0alpha4.CreatePublicShareResponse)
+	err := c.cc.Invoke(ctx, "/cs3.gatewayv0alpha.GatewayService/CreatePublicShare", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *gatewayServiceClient) RemovePublicShare(ctx context.Context, in *v0alpha4.RemovePublicShareRequest, opts ...grpc.CallOption) (*v0alpha4.RemovePublicShareResponse, error) {
+	out := new(v0alpha4.RemovePublicShareResponse)
+	err := c.cc.Invoke(ctx, "/cs3.gatewayv0alpha.GatewayService/RemovePublicShare", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *gatewayServiceClient) GetPublicShare(ctx context.Context, in *v0alpha4.GetPublicShareRequest, opts ...grpc.CallOption) (*v0alpha4.GetPublicShareResponse, error) {
+	out := new(v0alpha4.GetPublicShareResponse)
+	err := c.cc.Invoke(ctx, "/cs3.gatewayv0alpha.GatewayService/GetPublicShare", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *gatewayServiceClient) GetPublicShareByToken(ctx context.Context, in *v0alpha4.GetPublicShareByTokenRequest, opts ...grpc.CallOption) (*v0alpha4.GetPublicShareByTokenResponse, error) {
+	out := new(v0alpha4.GetPublicShareByTokenResponse)
+	err := c.cc.Invoke(ctx, "/cs3.gatewayv0alpha.GatewayService/GetPublicShareByToken", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *gatewayServiceClient) ListPublicShares(ctx context.Context, in *v0alpha4.ListPublicSharesRequest, opts ...grpc.CallOption) (*v0alpha4.ListPublicSharesResponse, error) {
+	out := new(v0alpha4.ListPublicSharesResponse)
+	err := c.cc.Invoke(ctx, "/cs3.gatewayv0alpha.GatewayService/ListPublicShares", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *gatewayServiceClient) UpdatePublicShare(ctx context.Context, in *v0alpha4.UpdatePublicShareRequest, opts ...grpc.CallOption) (*v0alpha4.UpdatePublicShareResponse, error) {
+	out := new(v0alpha4.UpdatePublicShareResponse)
+	err := c.cc.Invoke(ctx, "/cs3.gatewayv0alpha.GatewayService/UpdatePublicShare", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *gatewayServiceClient) CreateOCMShare(ctx context.Context, in *v0alpha5.CreateOCMShareRequest, opts ...grpc.CallOption) (*v0alpha5.CreateOCMShareResponse, error) {
+	out := new(v0alpha5.CreateOCMShareResponse)
+	err := c.cc.Invoke(ctx, "/cs3.gatewayv0alpha.GatewayService/CreateOCMShare", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *gatewayServiceClient) RemoveOCMShare(ctx context.Context, in *v0alpha5.RemoveOCMShareRequest, opts ...grpc.CallOption) (*v0alpha5.RemoveOCMShareResponse, error) {
+	out := new(v0alpha5.RemoveOCMShareResponse)
+	err := c.cc.Invoke(ctx, "/cs3.gatewayv0alpha.GatewayService/RemoveOCMShare", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *gatewayServiceClient) GetOCMShare(ctx context.Context, in *v0alpha5.GetOCMShareRequest, opts ...grpc.CallOption) (*v0alpha5.GetOCMShareResponse, error) {
+	out := new(v0alpha5.GetOCMShareResponse)
+	err := c.cc.Invoke(ctx, "/cs3.gatewayv0alpha.GatewayService/GetOCMShare", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *gatewayServiceClient) ListOCMShares(ctx context.Context, in *v0alpha5.ListOCMSharesRequest, opts ...grpc.CallOption) (*v0alpha5.ListOCMSharesResponse, error) {
+	out := new(v0alpha5.ListOCMSharesResponse)
+	err := c.cc.Invoke(ctx, "/cs3.gatewayv0alpha.GatewayService/ListOCMShares", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *gatewayServiceClient) UpdateOCMShares(ctx context.Context, in *v0alpha5.UpdateOCMSharesRequest, opts ...grpc.CallOption) (*v0alpha5.UpdateOCMSharesResponse, error) {
+	out := new(v0alpha5.UpdateOCMSharesResponse)
+	err := c.cc.Invoke(ctx, "/cs3.gatewayv0alpha.GatewayService/UpdateOCMShares", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *gatewayServiceClient) ListReceivedOCMShares(ctx context.Context, in *v0alpha5.ListReceivedOCMSharesRequest, opts ...grpc.CallOption) (*v0alpha5.ListReceivedOCMSharesResponse, error) {
+	out := new(v0alpha5.ListReceivedOCMSharesResponse)
+	err := c.cc.Invoke(ctx, "/cs3.gatewayv0alpha.GatewayService/ListReceivedOCMShares", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *gatewayServiceClient) UpdateReceivedOCMShare(ctx context.Context, in *v0alpha5.UpdateReceivedOCMShareRequest, opts ...grpc.CallOption) (*v0alpha5.UpdateReceivedOCMShareResponse, error) {
+	out := new(v0alpha5.UpdateReceivedOCMShareResponse)
+	err := c.cc.Invoke(ctx, "/cs3.gatewayv0alpha.GatewayService/UpdateReceivedOCMShare", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *gatewayServiceClient) GetAppProviders(ctx context.Context, in *v0alpha6.GetAppProvidersRequest, opts ...grpc.CallOption) (*v0alpha6.GetAppProvidersResponse, error) {
+	out := new(v0alpha6.GetAppProvidersResponse)
+	err := c.cc.Invoke(ctx, "/cs3.gatewayv0alpha.GatewayService/GetAppProviders", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *gatewayServiceClient) ListAppProviders(ctx context.Context, in *v0alpha6.ListAppProvidersRequest, opts ...grpc.CallOption) (*v0alpha6.ListAppProvidersResponse, error) {
+	out := new(v0alpha6.ListAppProvidersResponse)
+	err := c.cc.Invoke(ctx, "/cs3.gatewayv0alpha.GatewayService/ListAppProviders", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -832,6 +1106,12 @@ type GatewayServiceServer interface {
 	// Returns the resource information at the provided reference.
 	// MUST return CODE_NOT_FOUND if the reference does not exist.
 	Stat(context.Context, *v0alpha.StatRequest) (*v0alpha.StatResponse, error)
+	// Sets arbitrary metadata into a storage resource.
+	// Arbitrary metadata is returned in a cs3.storageproviderv0alpha.ResourceInfo.
+	SetArbitraryMetadata(context.Context, *v0alpha.SetArbitraryMetadataRequest) (*v0alpha.SetArbitraryMetadataResponse, error)
+	// Unsets arbitrary metdata into a storage resource.
+	// Arbitrary metadata is returned in a cs3.storageproviderv0alpha.ResourceInfo.
+	UnsetArbitraryMetadata(context.Context, *v0alpha.UnsetArbitraryMetadataRequest) (*v0alpha.UnsetArbitraryMetadataResponse, error)
 	// *****************************************************************/
 	// ************************ USER SHARE PROVIDER ********************/
 	// *****************************************************************/
@@ -862,6 +1142,74 @@ type GatewayServiceServer interface {
 	// Get the information for the given received share reference.
 	// MUST return CODE_NOT_FOUND if the received share reference does not exist.
 	GetReceivedShare(context.Context, *v0alpha2.GetReceivedShareRequest) (*v0alpha2.GetReceivedShareResponse, error)
+	// *****************************************************************/
+	// ************************ PREFERENCES ***************************/
+	// *****************************************************************/
+	// Maps the key-value pair.
+	SetKey(context.Context, *v0alpha3.SetKeyRequest) (*v0alpha3.SetKeyResponse, error)
+	// Returns the value associated with the
+	// requested key.
+	GetKey(context.Context, *v0alpha3.GetKeyRequest) (*v0alpha3.GetKeyResponse, error)
+	// *****************************************************************/
+	// ************************ PUBLIC SHARE ***************************/
+	// *****************************************************************/
+	// Creates a new share.
+	// MUST return CODE_NOT_FOUND if the resource reference does not exist.
+	// MUST return CODE_ALREADY_EXISTS if the share already exists for the 4-tuple consisting of
+	// (owner, shared_resource, grantee).
+	// New shares MUST be created in the state SHARE_STATE_PENDING.
+	CreatePublicShare(context.Context, *v0alpha4.CreatePublicShareRequest) (*v0alpha4.CreatePublicShareResponse, error)
+	// Removes a share.
+	// MUST return CODE_NOT_FOUND if the share reference does not exist.
+	RemovePublicShare(context.Context, *v0alpha4.RemovePublicShareRequest) (*v0alpha4.RemovePublicShareResponse, error)
+	// Gets share information for a single share.
+	// MUST return CODE_NOT_FOUND if the share reference does not exist.
+	GetPublicShare(context.Context, *v0alpha4.GetPublicShareRequest) (*v0alpha4.GetPublicShareResponse, error)
+	// Gets share information for a single share by its unlisted token.
+	// MUST return CODE_NOT_FOUND if the share does not exist.
+	GetPublicShareByToken(context.Context, *v0alpha4.GetPublicShareByTokenRequest) (*v0alpha4.GetPublicShareByTokenResponse, error)
+	// List the shares the authenticated principal has created,
+	// both as owner and creator. If a filter is specified, only
+	// shares satisfying the filter MUST be returned.
+	ListPublicShares(context.Context, *v0alpha4.ListPublicSharesRequest) (*v0alpha4.ListPublicSharesResponse, error)
+	// Updates a share.
+	// MUST return CODE_NOT_FOUND if the share reference does not exist.
+	UpdatePublicShare(context.Context, *v0alpha4.UpdatePublicShareRequest) (*v0alpha4.UpdatePublicShareResponse, error)
+	// *****************************************************************/
+	// ************************ OCM SHARE PROVIDER *********************/
+	// *****************************************************************/
+	// Creates a new share.
+	// MUST return CODE_NOT_FOUND if the resource reference does not exist.
+	// MUST return CODE_ALREADY_EXISTS if the share already exists for the 4-tuple consisting of
+	// (owner, shared_resource, grantee).
+	// New shares MUST be created in the state SHARE_STATE_PENDING.
+	CreateOCMShare(context.Context, *v0alpha5.CreateOCMShareRequest) (*v0alpha5.CreateOCMShareResponse, error)
+	// Removes a share.
+	// MUST return CODE_NOT_FOUND if the share reference does not exist.
+	RemoveOCMShare(context.Context, *v0alpha5.RemoveOCMShareRequest) (*v0alpha5.RemoveOCMShareResponse, error)
+	// Gets share information for a single share.
+	// MUST return CODE_NOT_FOUND if the share reference does not exist.
+	GetOCMShare(context.Context, *v0alpha5.GetOCMShareRequest) (*v0alpha5.GetOCMShareResponse, error)
+	// List the shares the authenticated principal has created,
+	// both as owner and creator. If a filter is specified, only
+	// shares satisfying the filter MUST be returned.
+	ListOCMShares(context.Context, *v0alpha5.ListOCMSharesRequest) (*v0alpha5.ListOCMSharesResponse, error)
+	// Updates a share.
+	// MUST return CODE_NOT_FOUND if the share reference does not exist.
+	UpdateOCMShares(context.Context, *v0alpha5.UpdateOCMSharesRequest) (*v0alpha5.UpdateOCMSharesResponse, error)
+	// List all shares the authenticated principal has received.
+	ListReceivedOCMShares(context.Context, *v0alpha5.ListReceivedOCMSharesRequest) (*v0alpha5.ListReceivedOCMSharesResponse, error)
+	// Update the received share to change the share state or the display name.
+	// MUST return CODE_NOT_FOUND if the share reference does not exist.
+	UpdateReceivedOCMShare(context.Context, *v0alpha5.UpdateReceivedOCMShareRequest) (*v0alpha5.UpdateReceivedOCMShareResponse, error)
+	// *****************************************************************/
+	// ************************ APP REGISTRY ****************************/
+	// *****************************************************************/
+	// Returns the app providers that are capable of handling this resource info.
+	// MUST return CODE_NOT_FOUND if no providers are available.
+	GetAppProviders(context.Context, *v0alpha6.GetAppProvidersRequest) (*v0alpha6.GetAppProvidersResponse, error)
+	// Returns a list of the available app providers known by this registry.
+	ListAppProviders(context.Context, *v0alpha6.ListAppProvidersRequest) (*v0alpha6.ListAppProvidersResponse, error)
 }
 
 // UnimplementedGatewayServiceServer can be embedded to have forward compatible implementations.
@@ -922,6 +1270,12 @@ func (*UnimplementedGatewayServiceServer) RestoreRecycleItem(ctx context.Context
 func (*UnimplementedGatewayServiceServer) Stat(ctx context.Context, req *v0alpha.StatRequest) (*v0alpha.StatResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Stat not implemented")
 }
+func (*UnimplementedGatewayServiceServer) SetArbitraryMetadata(ctx context.Context, req *v0alpha.SetArbitraryMetadataRequest) (*v0alpha.SetArbitraryMetadataResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method SetArbitraryMetadata not implemented")
+}
+func (*UnimplementedGatewayServiceServer) UnsetArbitraryMetadata(ctx context.Context, req *v0alpha.UnsetArbitraryMetadataRequest) (*v0alpha.UnsetArbitraryMetadataResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UnsetArbitraryMetadata not implemented")
+}
 func (*UnimplementedGatewayServiceServer) CreateShare(ctx context.Context, req *v0alpha2.CreateShareRequest) (*v0alpha2.CreateShareResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CreateShare not implemented")
 }
@@ -945,6 +1299,57 @@ func (*UnimplementedGatewayServiceServer) UpdateReceivedShare(ctx context.Contex
 }
 func (*UnimplementedGatewayServiceServer) GetReceivedShare(ctx context.Context, req *v0alpha2.GetReceivedShareRequest) (*v0alpha2.GetReceivedShareResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetReceivedShare not implemented")
+}
+func (*UnimplementedGatewayServiceServer) SetKey(ctx context.Context, req *v0alpha3.SetKeyRequest) (*v0alpha3.SetKeyResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method SetKey not implemented")
+}
+func (*UnimplementedGatewayServiceServer) GetKey(ctx context.Context, req *v0alpha3.GetKeyRequest) (*v0alpha3.GetKeyResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetKey not implemented")
+}
+func (*UnimplementedGatewayServiceServer) CreatePublicShare(ctx context.Context, req *v0alpha4.CreatePublicShareRequest) (*v0alpha4.CreatePublicShareResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CreatePublicShare not implemented")
+}
+func (*UnimplementedGatewayServiceServer) RemovePublicShare(ctx context.Context, req *v0alpha4.RemovePublicShareRequest) (*v0alpha4.RemovePublicShareResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method RemovePublicShare not implemented")
+}
+func (*UnimplementedGatewayServiceServer) GetPublicShare(ctx context.Context, req *v0alpha4.GetPublicShareRequest) (*v0alpha4.GetPublicShareResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetPublicShare not implemented")
+}
+func (*UnimplementedGatewayServiceServer) GetPublicShareByToken(ctx context.Context, req *v0alpha4.GetPublicShareByTokenRequest) (*v0alpha4.GetPublicShareByTokenResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetPublicShareByToken not implemented")
+}
+func (*UnimplementedGatewayServiceServer) ListPublicShares(ctx context.Context, req *v0alpha4.ListPublicSharesRequest) (*v0alpha4.ListPublicSharesResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ListPublicShares not implemented")
+}
+func (*UnimplementedGatewayServiceServer) UpdatePublicShare(ctx context.Context, req *v0alpha4.UpdatePublicShareRequest) (*v0alpha4.UpdatePublicShareResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdatePublicShare not implemented")
+}
+func (*UnimplementedGatewayServiceServer) CreateOCMShare(ctx context.Context, req *v0alpha5.CreateOCMShareRequest) (*v0alpha5.CreateOCMShareResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CreateOCMShare not implemented")
+}
+func (*UnimplementedGatewayServiceServer) RemoveOCMShare(ctx context.Context, req *v0alpha5.RemoveOCMShareRequest) (*v0alpha5.RemoveOCMShareResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method RemoveOCMShare not implemented")
+}
+func (*UnimplementedGatewayServiceServer) GetOCMShare(ctx context.Context, req *v0alpha5.GetOCMShareRequest) (*v0alpha5.GetOCMShareResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetOCMShare not implemented")
+}
+func (*UnimplementedGatewayServiceServer) ListOCMShares(ctx context.Context, req *v0alpha5.ListOCMSharesRequest) (*v0alpha5.ListOCMSharesResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ListOCMShares not implemented")
+}
+func (*UnimplementedGatewayServiceServer) UpdateOCMShares(ctx context.Context, req *v0alpha5.UpdateOCMSharesRequest) (*v0alpha5.UpdateOCMSharesResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdateOCMShares not implemented")
+}
+func (*UnimplementedGatewayServiceServer) ListReceivedOCMShares(ctx context.Context, req *v0alpha5.ListReceivedOCMSharesRequest) (*v0alpha5.ListReceivedOCMSharesResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ListReceivedOCMShares not implemented")
+}
+func (*UnimplementedGatewayServiceServer) UpdateReceivedOCMShare(ctx context.Context, req *v0alpha5.UpdateReceivedOCMShareRequest) (*v0alpha5.UpdateReceivedOCMShareResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdateReceivedOCMShare not implemented")
+}
+func (*UnimplementedGatewayServiceServer) GetAppProviders(ctx context.Context, req *v0alpha6.GetAppProvidersRequest) (*v0alpha6.GetAppProvidersResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetAppProviders not implemented")
+}
+func (*UnimplementedGatewayServiceServer) ListAppProviders(ctx context.Context, req *v0alpha6.ListAppProvidersRequest) (*v0alpha6.ListAppProvidersResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ListAppProviders not implemented")
 }
 
 func RegisterGatewayServiceServer(s *grpc.Server, srv GatewayServiceServer) {
@@ -1281,6 +1686,42 @@ func _GatewayService_Stat_Handler(srv interface{}, ctx context.Context, dec func
 	return interceptor(ctx, in, info, handler)
 }
 
+func _GatewayService_SetArbitraryMetadata_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(v0alpha.SetArbitraryMetadataRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(GatewayServiceServer).SetArbitraryMetadata(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/cs3.gatewayv0alpha.GatewayService/SetArbitraryMetadata",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(GatewayServiceServer).SetArbitraryMetadata(ctx, req.(*v0alpha.SetArbitraryMetadataRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _GatewayService_UnsetArbitraryMetadata_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(v0alpha.UnsetArbitraryMetadataRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(GatewayServiceServer).UnsetArbitraryMetadata(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/cs3.gatewayv0alpha.GatewayService/UnsetArbitraryMetadata",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(GatewayServiceServer).UnsetArbitraryMetadata(ctx, req.(*v0alpha.UnsetArbitraryMetadataRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _GatewayService_CreateShare_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(v0alpha2.CreateShareRequest)
 	if err := dec(in); err != nil {
@@ -1425,6 +1866,312 @@ func _GatewayService_GetReceivedShare_Handler(srv interface{}, ctx context.Conte
 	return interceptor(ctx, in, info, handler)
 }
 
+func _GatewayService_SetKey_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(v0alpha3.SetKeyRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(GatewayServiceServer).SetKey(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/cs3.gatewayv0alpha.GatewayService/SetKey",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(GatewayServiceServer).SetKey(ctx, req.(*v0alpha3.SetKeyRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _GatewayService_GetKey_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(v0alpha3.GetKeyRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(GatewayServiceServer).GetKey(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/cs3.gatewayv0alpha.GatewayService/GetKey",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(GatewayServiceServer).GetKey(ctx, req.(*v0alpha3.GetKeyRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _GatewayService_CreatePublicShare_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(v0alpha4.CreatePublicShareRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(GatewayServiceServer).CreatePublicShare(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/cs3.gatewayv0alpha.GatewayService/CreatePublicShare",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(GatewayServiceServer).CreatePublicShare(ctx, req.(*v0alpha4.CreatePublicShareRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _GatewayService_RemovePublicShare_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(v0alpha4.RemovePublicShareRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(GatewayServiceServer).RemovePublicShare(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/cs3.gatewayv0alpha.GatewayService/RemovePublicShare",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(GatewayServiceServer).RemovePublicShare(ctx, req.(*v0alpha4.RemovePublicShareRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _GatewayService_GetPublicShare_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(v0alpha4.GetPublicShareRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(GatewayServiceServer).GetPublicShare(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/cs3.gatewayv0alpha.GatewayService/GetPublicShare",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(GatewayServiceServer).GetPublicShare(ctx, req.(*v0alpha4.GetPublicShareRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _GatewayService_GetPublicShareByToken_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(v0alpha4.GetPublicShareByTokenRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(GatewayServiceServer).GetPublicShareByToken(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/cs3.gatewayv0alpha.GatewayService/GetPublicShareByToken",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(GatewayServiceServer).GetPublicShareByToken(ctx, req.(*v0alpha4.GetPublicShareByTokenRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _GatewayService_ListPublicShares_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(v0alpha4.ListPublicSharesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(GatewayServiceServer).ListPublicShares(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/cs3.gatewayv0alpha.GatewayService/ListPublicShares",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(GatewayServiceServer).ListPublicShares(ctx, req.(*v0alpha4.ListPublicSharesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _GatewayService_UpdatePublicShare_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(v0alpha4.UpdatePublicShareRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(GatewayServiceServer).UpdatePublicShare(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/cs3.gatewayv0alpha.GatewayService/UpdatePublicShare",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(GatewayServiceServer).UpdatePublicShare(ctx, req.(*v0alpha4.UpdatePublicShareRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _GatewayService_CreateOCMShare_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(v0alpha5.CreateOCMShareRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(GatewayServiceServer).CreateOCMShare(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/cs3.gatewayv0alpha.GatewayService/CreateOCMShare",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(GatewayServiceServer).CreateOCMShare(ctx, req.(*v0alpha5.CreateOCMShareRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _GatewayService_RemoveOCMShare_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(v0alpha5.RemoveOCMShareRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(GatewayServiceServer).RemoveOCMShare(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/cs3.gatewayv0alpha.GatewayService/RemoveOCMShare",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(GatewayServiceServer).RemoveOCMShare(ctx, req.(*v0alpha5.RemoveOCMShareRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _GatewayService_GetOCMShare_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(v0alpha5.GetOCMShareRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(GatewayServiceServer).GetOCMShare(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/cs3.gatewayv0alpha.GatewayService/GetOCMShare",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(GatewayServiceServer).GetOCMShare(ctx, req.(*v0alpha5.GetOCMShareRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _GatewayService_ListOCMShares_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(v0alpha5.ListOCMSharesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(GatewayServiceServer).ListOCMShares(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/cs3.gatewayv0alpha.GatewayService/ListOCMShares",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(GatewayServiceServer).ListOCMShares(ctx, req.(*v0alpha5.ListOCMSharesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _GatewayService_UpdateOCMShares_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(v0alpha5.UpdateOCMSharesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(GatewayServiceServer).UpdateOCMShares(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/cs3.gatewayv0alpha.GatewayService/UpdateOCMShares",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(GatewayServiceServer).UpdateOCMShares(ctx, req.(*v0alpha5.UpdateOCMSharesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _GatewayService_ListReceivedOCMShares_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(v0alpha5.ListReceivedOCMSharesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(GatewayServiceServer).ListReceivedOCMShares(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/cs3.gatewayv0alpha.GatewayService/ListReceivedOCMShares",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(GatewayServiceServer).ListReceivedOCMShares(ctx, req.(*v0alpha5.ListReceivedOCMSharesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _GatewayService_UpdateReceivedOCMShare_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(v0alpha5.UpdateReceivedOCMShareRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(GatewayServiceServer).UpdateReceivedOCMShare(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/cs3.gatewayv0alpha.GatewayService/UpdateReceivedOCMShare",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(GatewayServiceServer).UpdateReceivedOCMShare(ctx, req.(*v0alpha5.UpdateReceivedOCMShareRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _GatewayService_GetAppProviders_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(v0alpha6.GetAppProvidersRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(GatewayServiceServer).GetAppProviders(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/cs3.gatewayv0alpha.GatewayService/GetAppProviders",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(GatewayServiceServer).GetAppProviders(ctx, req.(*v0alpha6.GetAppProvidersRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _GatewayService_ListAppProviders_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(v0alpha6.ListAppProvidersRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(GatewayServiceServer).ListAppProviders(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/cs3.gatewayv0alpha.GatewayService/ListAppProviders",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(GatewayServiceServer).ListAppProviders(ctx, req.(*v0alpha6.ListAppProvidersRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 var _GatewayService_serviceDesc = grpc.ServiceDesc{
 	ServiceName: "cs3.gatewayv0alpha.GatewayService",
 	HandlerType: (*GatewayServiceServer)(nil),
@@ -1494,6 +2241,14 @@ var _GatewayService_serviceDesc = grpc.ServiceDesc{
 			Handler:    _GatewayService_Stat_Handler,
 		},
 		{
+			MethodName: "SetArbitraryMetadata",
+			Handler:    _GatewayService_SetArbitraryMetadata_Handler,
+		},
+		{
+			MethodName: "UnsetArbitraryMetadata",
+			Handler:    _GatewayService_UnsetArbitraryMetadata_Handler,
+		},
+		{
 			MethodName: "CreateShare",
 			Handler:    _GatewayService_CreateShare_Handler,
 		},
@@ -1524,6 +2279,74 @@ var _GatewayService_serviceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetReceivedShare",
 			Handler:    _GatewayService_GetReceivedShare_Handler,
+		},
+		{
+			MethodName: "SetKey",
+			Handler:    _GatewayService_SetKey_Handler,
+		},
+		{
+			MethodName: "GetKey",
+			Handler:    _GatewayService_GetKey_Handler,
+		},
+		{
+			MethodName: "CreatePublicShare",
+			Handler:    _GatewayService_CreatePublicShare_Handler,
+		},
+		{
+			MethodName: "RemovePublicShare",
+			Handler:    _GatewayService_RemovePublicShare_Handler,
+		},
+		{
+			MethodName: "GetPublicShare",
+			Handler:    _GatewayService_GetPublicShare_Handler,
+		},
+		{
+			MethodName: "GetPublicShareByToken",
+			Handler:    _GatewayService_GetPublicShareByToken_Handler,
+		},
+		{
+			MethodName: "ListPublicShares",
+			Handler:    _GatewayService_ListPublicShares_Handler,
+		},
+		{
+			MethodName: "UpdatePublicShare",
+			Handler:    _GatewayService_UpdatePublicShare_Handler,
+		},
+		{
+			MethodName: "CreateOCMShare",
+			Handler:    _GatewayService_CreateOCMShare_Handler,
+		},
+		{
+			MethodName: "RemoveOCMShare",
+			Handler:    _GatewayService_RemoveOCMShare_Handler,
+		},
+		{
+			MethodName: "GetOCMShare",
+			Handler:    _GatewayService_GetOCMShare_Handler,
+		},
+		{
+			MethodName: "ListOCMShares",
+			Handler:    _GatewayService_ListOCMShares_Handler,
+		},
+		{
+			MethodName: "UpdateOCMShares",
+			Handler:    _GatewayService_UpdateOCMShares_Handler,
+		},
+		{
+			MethodName: "ListReceivedOCMShares",
+			Handler:    _GatewayService_ListReceivedOCMShares_Handler,
+		},
+		{
+			MethodName: "UpdateReceivedOCMShare",
+			Handler:    _GatewayService_UpdateReceivedOCMShare_Handler,
+		},
+		{
+			MethodName: "GetAppProviders",
+			Handler:    _GatewayService_GetAppProviders_Handler,
+		},
+		{
+			MethodName: "ListAppProviders",
+			Handler:    _GatewayService_ListAppProviders_Handler,
 		},
 	},
 	Streams: []grpc.StreamDesc{
