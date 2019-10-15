@@ -26,199 +26,111 @@ var _ = math.Inf
 // proto package needs to be updated.
 const _ = proto.ProtoPackageIsVersion3 // please upgrade the proto package
 
-type GenerateAccessTokenRequest struct {
-	ClientId             string   `protobuf:"bytes,2,opt,name=client_id,json=clientId,proto3" json:"client_id,omitempty"`
-	ClientSecret         string   `protobuf:"bytes,3,opt,name=client_secret,json=clientSecret,proto3" json:"client_secret,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+type AuthenticateRequest struct {
+	Opaque               *types.Opaque `protobuf:"bytes,1,opt,name=opaque,proto3" json:"opaque,omitempty"`
+	ClientId             string        `protobuf:"bytes,2,opt,name=client_id,json=clientId,proto3" json:"client_id,omitempty"`
+	ClientSecret         string        `protobuf:"bytes,3,opt,name=client_secret,json=clientSecret,proto3" json:"client_secret,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}      `json:"-"`
+	XXX_unrecognized     []byte        `json:"-"`
+	XXX_sizecache        int32         `json:"-"`
 }
 
-func (m *GenerateAccessTokenRequest) Reset()         { *m = GenerateAccessTokenRequest{} }
-func (m *GenerateAccessTokenRequest) String() string { return proto.CompactTextString(m) }
-func (*GenerateAccessTokenRequest) ProtoMessage()    {}
-func (*GenerateAccessTokenRequest) Descriptor() ([]byte, []int) {
+func (m *AuthenticateRequest) Reset()         { *m = AuthenticateRequest{} }
+func (m *AuthenticateRequest) String() string { return proto.CompactTextString(m) }
+func (*AuthenticateRequest) ProtoMessage()    {}
+func (*AuthenticateRequest) Descriptor() ([]byte, []int) {
 	return fileDescriptor_08e542c8cad6d0bb, []int{0}
 }
 
-func (m *GenerateAccessTokenRequest) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_GenerateAccessTokenRequest.Unmarshal(m, b)
+func (m *AuthenticateRequest) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_AuthenticateRequest.Unmarshal(m, b)
 }
-func (m *GenerateAccessTokenRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_GenerateAccessTokenRequest.Marshal(b, m, deterministic)
+func (m *AuthenticateRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_AuthenticateRequest.Marshal(b, m, deterministic)
 }
-func (m *GenerateAccessTokenRequest) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_GenerateAccessTokenRequest.Merge(m, src)
+func (m *AuthenticateRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_AuthenticateRequest.Merge(m, src)
 }
-func (m *GenerateAccessTokenRequest) XXX_Size() int {
-	return xxx_messageInfo_GenerateAccessTokenRequest.Size(m)
+func (m *AuthenticateRequest) XXX_Size() int {
+	return xxx_messageInfo_AuthenticateRequest.Size(m)
 }
-func (m *GenerateAccessTokenRequest) XXX_DiscardUnknown() {
-	xxx_messageInfo_GenerateAccessTokenRequest.DiscardUnknown(m)
+func (m *AuthenticateRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_AuthenticateRequest.DiscardUnknown(m)
 }
 
-var xxx_messageInfo_GenerateAccessTokenRequest proto.InternalMessageInfo
+var xxx_messageInfo_AuthenticateRequest proto.InternalMessageInfo
 
-func (m *GenerateAccessTokenRequest) GetClientId() string {
+func (m *AuthenticateRequest) GetOpaque() *types.Opaque {
+	if m != nil {
+		return m.Opaque
+	}
+	return nil
+}
+
+func (m *AuthenticateRequest) GetClientId() string {
 	if m != nil {
 		return m.ClientId
 	}
 	return ""
 }
 
-func (m *GenerateAccessTokenRequest) GetClientSecret() string {
+func (m *AuthenticateRequest) GetClientSecret() string {
 	if m != nil {
 		return m.ClientSecret
 	}
 	return ""
 }
 
-type GenerateAccessTokenResponse struct {
+type AuthenticateResponse struct {
 	Status               *rpc.Status   `protobuf:"bytes,1,opt,name=status,proto3" json:"status,omitempty"`
-	AccessToken          string        `protobuf:"bytes,2,opt,name=access_token,json=accessToken,proto3" json:"access_token,omitempty"`
-	UserId               *types.UserId `protobuf:"bytes,3,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
+	UserId               *types.UserId `protobuf:"bytes,2,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
 	XXX_NoUnkeyedLiteral struct{}      `json:"-"`
 	XXX_unrecognized     []byte        `json:"-"`
 	XXX_sizecache        int32         `json:"-"`
 }
 
-func (m *GenerateAccessTokenResponse) Reset()         { *m = GenerateAccessTokenResponse{} }
-func (m *GenerateAccessTokenResponse) String() string { return proto.CompactTextString(m) }
-func (*GenerateAccessTokenResponse) ProtoMessage()    {}
-func (*GenerateAccessTokenResponse) Descriptor() ([]byte, []int) {
+func (m *AuthenticateResponse) Reset()         { *m = AuthenticateResponse{} }
+func (m *AuthenticateResponse) String() string { return proto.CompactTextString(m) }
+func (*AuthenticateResponse) ProtoMessage()    {}
+func (*AuthenticateResponse) Descriptor() ([]byte, []int) {
 	return fileDescriptor_08e542c8cad6d0bb, []int{1}
 }
 
-func (m *GenerateAccessTokenResponse) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_GenerateAccessTokenResponse.Unmarshal(m, b)
+func (m *AuthenticateResponse) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_AuthenticateResponse.Unmarshal(m, b)
 }
-func (m *GenerateAccessTokenResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_GenerateAccessTokenResponse.Marshal(b, m, deterministic)
+func (m *AuthenticateResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_AuthenticateResponse.Marshal(b, m, deterministic)
 }
-func (m *GenerateAccessTokenResponse) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_GenerateAccessTokenResponse.Merge(m, src)
+func (m *AuthenticateResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_AuthenticateResponse.Merge(m, src)
 }
-func (m *GenerateAccessTokenResponse) XXX_Size() int {
-	return xxx_messageInfo_GenerateAccessTokenResponse.Size(m)
+func (m *AuthenticateResponse) XXX_Size() int {
+	return xxx_messageInfo_AuthenticateResponse.Size(m)
 }
-func (m *GenerateAccessTokenResponse) XXX_DiscardUnknown() {
-	xxx_messageInfo_GenerateAccessTokenResponse.DiscardUnknown(m)
+func (m *AuthenticateResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_AuthenticateResponse.DiscardUnknown(m)
 }
 
-var xxx_messageInfo_GenerateAccessTokenResponse proto.InternalMessageInfo
+var xxx_messageInfo_AuthenticateResponse proto.InternalMessageInfo
 
-func (m *GenerateAccessTokenResponse) GetStatus() *rpc.Status {
+func (m *AuthenticateResponse) GetStatus() *rpc.Status {
 	if m != nil {
 		return m.Status
 	}
 	return nil
 }
 
-func (m *GenerateAccessTokenResponse) GetAccessToken() string {
-	if m != nil {
-		return m.AccessToken
-	}
-	return ""
-}
-
-func (m *GenerateAccessTokenResponse) GetUserId() *types.UserId {
+func (m *AuthenticateResponse) GetUserId() *types.UserId {
 	if m != nil {
 		return m.UserId
 	}
 	return nil
 }
 
-type WhoAmIRequest struct {
-	AccessToken          string   `protobuf:"bytes,1,opt,name=access_token,json=accessToken,proto3" json:"access_token,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
-}
-
-func (m *WhoAmIRequest) Reset()         { *m = WhoAmIRequest{} }
-func (m *WhoAmIRequest) String() string { return proto.CompactTextString(m) }
-func (*WhoAmIRequest) ProtoMessage()    {}
-func (*WhoAmIRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_08e542c8cad6d0bb, []int{2}
-}
-
-func (m *WhoAmIRequest) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_WhoAmIRequest.Unmarshal(m, b)
-}
-func (m *WhoAmIRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_WhoAmIRequest.Marshal(b, m, deterministic)
-}
-func (m *WhoAmIRequest) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_WhoAmIRequest.Merge(m, src)
-}
-func (m *WhoAmIRequest) XXX_Size() int {
-	return xxx_messageInfo_WhoAmIRequest.Size(m)
-}
-func (m *WhoAmIRequest) XXX_DiscardUnknown() {
-	xxx_messageInfo_WhoAmIRequest.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_WhoAmIRequest proto.InternalMessageInfo
-
-func (m *WhoAmIRequest) GetAccessToken() string {
-	if m != nil {
-		return m.AccessToken
-	}
-	return ""
-}
-
-type WhoAmIResponse struct {
-	Status               *rpc.Status `protobuf:"bytes,1,opt,name=status,proto3" json:"status,omitempty"`
-	User                 *User       `protobuf:"bytes,2,opt,name=user,proto3" json:"user,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}    `json:"-"`
-	XXX_unrecognized     []byte      `json:"-"`
-	XXX_sizecache        int32       `json:"-"`
-}
-
-func (m *WhoAmIResponse) Reset()         { *m = WhoAmIResponse{} }
-func (m *WhoAmIResponse) String() string { return proto.CompactTextString(m) }
-func (*WhoAmIResponse) ProtoMessage()    {}
-func (*WhoAmIResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_08e542c8cad6d0bb, []int{3}
-}
-
-func (m *WhoAmIResponse) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_WhoAmIResponse.Unmarshal(m, b)
-}
-func (m *WhoAmIResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_WhoAmIResponse.Marshal(b, m, deterministic)
-}
-func (m *WhoAmIResponse) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_WhoAmIResponse.Merge(m, src)
-}
-func (m *WhoAmIResponse) XXX_Size() int {
-	return xxx_messageInfo_WhoAmIResponse.Size(m)
-}
-func (m *WhoAmIResponse) XXX_DiscardUnknown() {
-	xxx_messageInfo_WhoAmIResponse.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_WhoAmIResponse proto.InternalMessageInfo
-
-func (m *WhoAmIResponse) GetStatus() *rpc.Status {
-	if m != nil {
-		return m.Status
-	}
-	return nil
-}
-
-func (m *WhoAmIResponse) GetUser() *User {
-	if m != nil {
-		return m.User
-	}
-	return nil
-}
-
 func init() {
-	proto.RegisterType((*GenerateAccessTokenRequest)(nil), "cs3.authproviderv0alpha.GenerateAccessTokenRequest")
-	proto.RegisterType((*GenerateAccessTokenResponse)(nil), "cs3.authproviderv0alpha.GenerateAccessTokenResponse")
-	proto.RegisterType((*WhoAmIRequest)(nil), "cs3.authproviderv0alpha.WhoAmIRequest")
-	proto.RegisterType((*WhoAmIResponse)(nil), "cs3.authproviderv0alpha.WhoAmIResponse")
+	proto.RegisterType((*AuthenticateRequest)(nil), "cs3.authproviderv0alpha.AuthenticateRequest")
+	proto.RegisterType((*AuthenticateResponse)(nil), "cs3.authproviderv0alpha.AuthenticateResponse")
 }
 
 func init() {
@@ -226,34 +138,29 @@ func init() {
 }
 
 var fileDescriptor_08e542c8cad6d0bb = []byte{
-	// 428 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x94, 0x93, 0xdf, 0x8a, 0xd3, 0x40,
-	0x14, 0xc6, 0x99, 0xae, 0x44, 0x77, 0xba, 0xab, 0xec, 0xac, 0xcb, 0x96, 0x14, 0x61, 0x8d, 0xe0,
-	0x16, 0x85, 0xb4, 0x26, 0xbe, 0x40, 0xd2, 0x0b, 0xe9, 0x95, 0x25, 0xf1, 0x3f, 0x62, 0x49, 0x27,
-	0x07, 0x12, 0x6c, 0x33, 0xe3, 0xcc, 0xa4, 0xe0, 0x9d, 0x57, 0xbe, 0x81, 0x2f, 0xe0, 0xa5, 0x8f,
-	0xe2, 0xeb, 0xf8, 0x02, 0x32, 0x33, 0x29, 0xb6, 0x9a, 0x20, 0xbd, 0x49, 0xe0, 0x3b, 0xdf, 0xf9,
-	0xcd, 0x77, 0xce, 0x24, 0xf8, 0x31, 0x95, 0xe1, 0x38, 0xab, 0x55, 0xc1, 0x05, 0xdb, 0x94, 0x39,
-	0x88, 0xf1, 0x66, 0x92, 0xad, 0x78, 0x91, 0xed, 0x89, 0x3e, 0x17, 0x4c, 0x31, 0x72, 0x49, 0x65,
-	0xe8, 0xef, 0xea, 0x8d, 0xd7, 0x1d, 0x75, 0x52, 0x04, 0x48, 0x56, 0x0b, 0x0a, 0xd2, 0x22, 0xdc,
-	0xbb, 0xda, 0x29, 0x38, 0x1d, 0x4b, 0x95, 0xa9, 0x7a, 0xab, 0x5e, 0x68, 0x55, 0x7d, 0xe6, 0x20,
-	0xed, 0xd3, 0xca, 0xde, 0x07, 0xec, 0x3e, 0x83, 0x0a, 0x44, 0xa6, 0x20, 0xa2, 0x14, 0xa4, 0x7c,
-	0xc1, 0x3e, 0x42, 0x95, 0xc0, 0xa7, 0x1a, 0xa4, 0x22, 0x43, 0x7c, 0x4c, 0x57, 0x25, 0x54, 0x6a,
-	0x51, 0xe6, 0x83, 0xde, 0x15, 0x1a, 0x1d, 0x27, 0xb7, 0xac, 0x30, 0xcb, 0xc9, 0x03, 0x7c, 0xda,
-	0x14, 0x25, 0x50, 0x01, 0x6a, 0x70, 0x64, 0x0c, 0x27, 0x56, 0x4c, 0x8d, 0xe6, 0x7d, 0x43, 0x78,
-	0xd8, 0x7a, 0x80, 0xe4, 0xac, 0x92, 0x40, 0xae, 0xb1, 0x63, 0x63, 0x0e, 0xd0, 0x15, 0x1a, 0xf5,
-	0x83, 0x3b, 0xbe, 0x5e, 0x80, 0xe0, 0xd4, 0x4f, 0x8d, 0x9c, 0x34, 0x65, 0x72, 0x1f, 0x9f, 0x64,
-	0xa6, 0x7f, 0xa1, 0x34, 0xa0, 0x49, 0xd3, 0xcf, 0xfe, 0x30, 0xc9, 0x23, 0x7c, 0xb3, 0x96, 0x20,
-	0x74, 0xd6, 0x23, 0x03, 0x3b, 0x33, 0x30, 0x3b, 0xee, 0x4b, 0x09, 0x62, 0x96, 0x27, 0x4e, 0x6d,
-	0xde, 0x5e, 0x80, 0x4f, 0x5f, 0x17, 0x2c, 0x5a, 0xcf, 0xb6, 0xa3, 0xfe, 0xcd, 0x47, 0xff, 0xf0,
-	0xbd, 0x15, 0xbe, 0xbd, 0xed, 0x39, 0x34, 0xfd, 0x13, 0x7c, 0x43, 0x1f, 0x6c, 0x52, 0xf7, 0x83,
-	0x7b, 0x7e, 0xc7, 0x2d, 0x9b, 0x94, 0x89, 0xb1, 0x06, 0xbf, 0x10, 0x3e, 0x8f, 0x6a, 0x55, 0xcc,
-	0x1b, 0x4b, 0x0a, 0x62, 0x53, 0x52, 0x20, 0x5f, 0x10, 0x3e, 0x6f, 0xd9, 0x28, 0x09, 0x3b, 0xa1,
-	0xdd, 0x17, 0xec, 0x3e, 0x3d, 0xac, 0xa9, 0x19, 0xfb, 0x2d, 0x76, 0xec, 0x22, 0xc8, 0xc3, 0xce,
-	0xfe, 0xbd, 0xed, 0xba, 0xd7, 0xff, 0xf5, 0x59, 0x74, 0xfc, 0x15, 0xe1, 0x21, 0x65, 0xeb, 0x2e,
-	0x7b, 0x7c, 0x16, 0xed, 0x88, 0x73, 0xfd, 0x09, 0xcf, 0xd1, 0xbb, 0x8b, 0x16, 0x27, 0x5f, 0x7e,
-	0xef, 0x39, 0xd3, 0xf8, 0xf9, 0x9b, 0x28, 0xfe, 0xd1, 0xbb, 0x9c, 0xa6, 0xa1, 0xbf, 0xbb, 0xcc,
-	0x57, 0x93, 0x48, 0x9b, 0x7e, 0x9a, 0xca, 0xfb, 0x96, 0xca, 0xd2, 0x31, 0xff, 0x47, 0xf8, 0x3b,
-	0x00, 0x00, 0xff, 0xff, 0x29, 0xc1, 0xf2, 0xa0, 0xbe, 0x03, 0x00, 0x00,
+	// 342 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x8c, 0x92, 0xcd, 0x6a, 0xfa, 0x40,
+	0x14, 0xc5, 0x89, 0x7f, 0xc8, 0xbf, 0x4e, 0x2d, 0xc5, 0xa9, 0xa2, 0xe8, 0x46, 0xec, 0xa2, 0xf6,
+	0x6b, 0x14, 0xf3, 0x04, 0x89, 0x2b, 0x57, 0x4a, 0x42, 0x4b, 0x29, 0x85, 0x12, 0x27, 0x17, 0x0c,
+	0x5a, 0x33, 0xce, 0x87, 0xd0, 0x6d, 0x17, 0x7d, 0x90, 0x2e, 0xfb, 0x28, 0x7d, 0xaa, 0x92, 0x99,
+	0x11, 0x22, 0x44, 0xe8, 0x26, 0x81, 0xdf, 0x39, 0x37, 0x39, 0xe7, 0xce, 0xa0, 0x5b, 0x2a, 0xbc,
+	0x61, 0xac, 0xe4, 0x92, 0xf1, 0x6c, 0x97, 0x26, 0xc0, 0x87, 0xbb, 0x51, 0xbc, 0x66, 0xcb, 0xf8,
+	0x00, 0x12, 0xc6, 0x33, 0x99, 0xe1, 0x16, 0x15, 0x1e, 0x29, 0x72, 0xeb, 0xed, 0x34, 0xf2, 0xaf,
+	0x70, 0x46, 0x87, 0x42, 0xc6, 0x52, 0x09, 0x63, 0xef, 0x34, 0x73, 0x2a, 0xdf, 0x19, 0x08, 0xf3,
+	0x34, 0xb8, 0xff, 0xe1, 0xa0, 0x0b, 0x5f, 0xc9, 0x25, 0x6c, 0x64, 0x4a, 0x63, 0x09, 0x21, 0x6c,
+	0x15, 0x08, 0x89, 0xaf, 0x91, 0x9b, 0xb1, 0x78, 0xab, 0xa0, 0xed, 0xf4, 0x9c, 0xc1, 0xe9, 0xb8,
+	0x4e, 0xf2, 0xdf, 0x99, 0xc9, 0x99, 0x16, 0x42, 0x6b, 0xc0, 0x5d, 0x54, 0xa5, 0xeb, 0x14, 0x36,
+	0xf2, 0x35, 0x4d, 0xda, 0x95, 0x9e, 0x33, 0xa8, 0x86, 0x27, 0x06, 0x4c, 0x13, 0x7c, 0x89, 0xce,
+	0xac, 0x28, 0x80, 0x72, 0x90, 0xed, 0x7f, 0xda, 0x50, 0x33, 0x30, 0xd2, 0xac, 0xbf, 0x42, 0x8d,
+	0xc3, 0x0c, 0x82, 0x65, 0x1b, 0x01, 0xf8, 0x0a, 0xb9, 0xa6, 0x83, 0x0d, 0x71, 0xae, 0x43, 0x70,
+	0x46, 0x49, 0xa4, 0x71, 0x68, 0x65, 0x7c, 0x83, 0xfe, 0x2b, 0x01, 0x7c, 0x1f, 0xe0, 0x30, 0xee,
+	0x83, 0x00, 0x3e, 0x4d, 0x42, 0x57, 0xe9, 0xf7, 0x78, 0xdf, 0x78, 0x6e, 0xd7, 0x16, 0x01, 0xdf,
+	0xa5, 0x14, 0xf0, 0x0a, 0xd5, 0x8a, 0x21, 0xf0, 0x1d, 0x39, 0xb2, 0x60, 0x52, 0xb2, 0xaf, 0xce,
+	0xfd, 0x1f, 0xdd, 0xa6, 0x59, 0xf0, 0xe9, 0xa0, 0x2e, 0xcd, 0xde, 0x8e, 0x0d, 0x05, 0x75, 0xbf,
+	0x00, 0xe7, 0xf9, 0x49, 0xcd, 0x9d, 0xe7, 0x66, 0x89, 0x93, 0x2d, 0xbe, 0x2a, 0xee, 0x24, 0x98,
+	0x3d, 0xf9, 0xc1, 0x77, 0xa5, 0x35, 0x89, 0x3c, 0x52, 0xec, 0xf6, 0x38, 0xf2, 0x73, 0xd3, 0x8f,
+	0x56, 0x5e, 0x4a, 0x94, 0x85, 0xab, 0xaf, 0x81, 0xf7, 0x1b, 0x00, 0x00, 0xff, 0xff, 0xaa, 0x0e,
+	0x3f, 0xb9, 0x7b, 0x02, 0x00, 0x00,
 }
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -268,8 +175,7 @@ const _ = grpc.SupportPackageIsVersion4
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
 type AuthProviderServiceClient interface {
-	GenerateAccessToken(ctx context.Context, in *GenerateAccessTokenRequest, opts ...grpc.CallOption) (*GenerateAccessTokenResponse, error)
-	WhoAmI(ctx context.Context, in *WhoAmIRequest, opts ...grpc.CallOption) (*WhoAmIResponse, error)
+	Authenticate(ctx context.Context, in *AuthenticateRequest, opts ...grpc.CallOption) (*AuthenticateResponse, error)
 }
 
 type authProviderServiceClient struct {
@@ -280,18 +186,9 @@ func NewAuthProviderServiceClient(cc *grpc.ClientConn) AuthProviderServiceClient
 	return &authProviderServiceClient{cc}
 }
 
-func (c *authProviderServiceClient) GenerateAccessToken(ctx context.Context, in *GenerateAccessTokenRequest, opts ...grpc.CallOption) (*GenerateAccessTokenResponse, error) {
-	out := new(GenerateAccessTokenResponse)
-	err := c.cc.Invoke(ctx, "/cs3.authproviderv0alpha.AuthProviderService/GenerateAccessToken", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *authProviderServiceClient) WhoAmI(ctx context.Context, in *WhoAmIRequest, opts ...grpc.CallOption) (*WhoAmIResponse, error) {
-	out := new(WhoAmIResponse)
-	err := c.cc.Invoke(ctx, "/cs3.authproviderv0alpha.AuthProviderService/WhoAmI", in, out, opts...)
+func (c *authProviderServiceClient) Authenticate(ctx context.Context, in *AuthenticateRequest, opts ...grpc.CallOption) (*AuthenticateResponse, error) {
+	out := new(AuthenticateResponse)
+	err := c.cc.Invoke(ctx, "/cs3.authproviderv0alpha.AuthProviderService/Authenticate", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -300,57 +197,35 @@ func (c *authProviderServiceClient) WhoAmI(ctx context.Context, in *WhoAmIReques
 
 // AuthProviderServiceServer is the server API for AuthProviderService service.
 type AuthProviderServiceServer interface {
-	GenerateAccessToken(context.Context, *GenerateAccessTokenRequest) (*GenerateAccessTokenResponse, error)
-	WhoAmI(context.Context, *WhoAmIRequest) (*WhoAmIResponse, error)
+	Authenticate(context.Context, *AuthenticateRequest) (*AuthenticateResponse, error)
 }
 
 // UnimplementedAuthProviderServiceServer can be embedded to have forward compatible implementations.
 type UnimplementedAuthProviderServiceServer struct {
 }
 
-func (*UnimplementedAuthProviderServiceServer) GenerateAccessToken(ctx context.Context, req *GenerateAccessTokenRequest) (*GenerateAccessTokenResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method GenerateAccessToken not implemented")
-}
-func (*UnimplementedAuthProviderServiceServer) WhoAmI(ctx context.Context, req *WhoAmIRequest) (*WhoAmIResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method WhoAmI not implemented")
+func (*UnimplementedAuthProviderServiceServer) Authenticate(ctx context.Context, req *AuthenticateRequest) (*AuthenticateResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Authenticate not implemented")
 }
 
 func RegisterAuthProviderServiceServer(s *grpc.Server, srv AuthProviderServiceServer) {
 	s.RegisterService(&_AuthProviderService_serviceDesc, srv)
 }
 
-func _AuthProviderService_GenerateAccessToken_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GenerateAccessTokenRequest)
+func _AuthProviderService_Authenticate_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AuthenticateRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(AuthProviderServiceServer).GenerateAccessToken(ctx, in)
+		return srv.(AuthProviderServiceServer).Authenticate(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/cs3.authproviderv0alpha.AuthProviderService/GenerateAccessToken",
+		FullMethod: "/cs3.authproviderv0alpha.AuthProviderService/Authenticate",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AuthProviderServiceServer).GenerateAccessToken(ctx, req.(*GenerateAccessTokenRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AuthProviderService_WhoAmI_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(WhoAmIRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AuthProviderServiceServer).WhoAmI(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/cs3.authproviderv0alpha.AuthProviderService/WhoAmI",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AuthProviderServiceServer).WhoAmI(ctx, req.(*WhoAmIRequest))
+		return srv.(AuthProviderServiceServer).Authenticate(ctx, req.(*AuthenticateRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -360,12 +235,8 @@ var _AuthProviderService_serviceDesc = grpc.ServiceDesc{
 	HandlerType: (*AuthProviderServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "GenerateAccessToken",
-			Handler:    _AuthProviderService_GenerateAccessToken_Handler,
-		},
-		{
-			MethodName: "WhoAmI",
-			Handler:    _AuthProviderService_WhoAmI_Handler,
+			MethodName: "Authenticate",
+			Handler:    _AuthProviderService_Authenticate_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
